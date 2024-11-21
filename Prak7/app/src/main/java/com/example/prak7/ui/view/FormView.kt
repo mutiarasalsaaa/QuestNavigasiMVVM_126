@@ -39,3 +39,51 @@ fun FormView(
 
     val listData: MutableList<String> = mutableListOf(nama, nim, email, notlp, gender, alamat)
 
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(16.dp)
+            .verticalScroll(rememberScrollState()),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        TextField(
+            value = nama,
+            onValueChange = { nama = it },
+            label = { Text(text = "Nama") },
+            placeholder = { Text(text = "Isi nama anda") },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(5.dp)
+        )
+        TextField(
+            value = nim,
+            onValueChange = { nim = it },
+            label = { Text(text = "NIM") },
+            placeholder = { Text(text = "Isi NIM anda") },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(5.dp),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+        )
+        TextField(
+            value = email,
+            onValueChange = { email = it },
+            label = { Text(text = "Email") },
+            placeholder = { Text(text = "Isi email anda") },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(5.dp),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
+        )
+        TextField(
+            value = notlp,
+            onValueChange = { notlp = it },
+            label = { Text(text = "No Telepon") },
+            placeholder = { Text(text = "Isi nomor telepon anda") },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(5.dp),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone)
+        )
+        
