@@ -23,3 +23,12 @@ enum class Halaman{
     TAMPILDATA
 }
 
+@Composable
+fun NavigationControl(
+    modifier: Modifier = Modifier,
+    viewModel: SiswaViewModel = viewModel(),
+    navHost: NavHostController = rememberNavController()
+){
+    val context = LocalContext.current
+    val uiState by viewModel.statusUI.collectAsState()
+
