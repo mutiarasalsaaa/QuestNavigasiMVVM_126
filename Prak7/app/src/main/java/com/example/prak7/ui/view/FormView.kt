@@ -86,4 +86,33 @@ fun FormView(
                 .padding(5.dp),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone)
         )
-        
+        Row(modifier = Modifier.fillMaxWidth()) {
+            listJK.forEach { selectedGender ->
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    RadioButton(
+                        selected = gender == selectedGender,
+                        onClick = { gender = selectedGender }
+                    )
+                    Text(text = selectedGender)
+                }
+            }
+        }
+        TextField(
+            value = alamat,
+            onValueChange = { alamat = it },
+            label = { Text(text = "Alamat") },
+            placeholder = { Text(text = "Isi alamat anda") },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(5.dp)
+        )
+        Button(
+            onClick = {
+                onSubmitClicked(listData)
+            },
+            modifier = Modifier.padding(top = 16.dp)
+        ) {
+            Text(text = "Simpan")
+        }
+    }
+}
